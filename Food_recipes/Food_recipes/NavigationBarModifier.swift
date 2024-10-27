@@ -31,3 +31,6 @@ struct NavigationBarModifier: ViewModifier {
         content
     }
 }
+
+
+//here
