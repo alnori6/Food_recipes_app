@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- This key is used for reading from the photo library (required for PhotosPicker) -->
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>We need access to your photo library to let you select a recipe photo.</string>
+    
+    <!-- This key is used for adding photos to the photo library (optional, include if you need to save photos) -->
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>We need access to your photo library to save a photo of your recipe.</string>
+
+    <!-- Additional keys (optional) -->
+    <key>CFBundleDocumentTypes</key>
+    <array>
+        <dict/>
+    </array>
+</dict>
+</plist>
