@@ -9,35 +9,35 @@ import SwiftUI
 
 
 // Modifier to set custom UINavigationBar background color
-struct NavigationBarModifier: ViewModifier {
-    
-    var backgroundColor: UIColor?
-    
-    init(backgroundColor: UIColor?) {
-        self.backgroundColor = backgroundColor
-        
-        // Create a new UINavigationBarAppearance instance
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground() // Make the background opaque
-        appearance.backgroundColor = backgroundColor // Set the background color
-        
-        // Customize title appearance (optional)
-//        appearance.titleTextAttributes = [.foregroundColor: UIColor.white] // Title color
-//        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white] // Large title color
-        
-        // Apply appearance for both standard and scrollEdge appearances
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-    }
-    
-    func body(content: Content) -> some View {
-        content
-    }
-}
+//struct NavigationBarModifier: ViewModifier {
+//    
+//    var backgroundColor: UIColor?
+//    
+//    init(backgroundColor: UIColor?) {
+//        self.backgroundColor = backgroundColor
+//        
+//        // Create a new UINavigationBarAppearance instance
+//        let appearance = UINavigationBarAppearance()
+//        appearance.configureWithOpaqueBackground() // Make the background opaque
+//        appearance.backgroundColor = backgroundColor // Set the background color
+//        
+//        // Customize title appearance (optional)
+////        appearance.titleTextAttributes = [.foregroundColor: UIColor.white] // Title color
+////        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white] // Large title color
+//        
+//        // Apply appearance for both standard and scrollEdge appearances
+//        UINavigationBar.appearance().standardAppearance = appearance
+//        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+//    }
+//    
+//    func body(content: Content) -> some View {
+//        content
+//    }
+//}
 
 
 
-struct home_page: View {
+struct hoome_page: View {
     var body: some View {
         
         NavigationView {
@@ -83,5 +83,5 @@ struct home_page: View {
 
 
 #Preview {
-    home_page()
+    hoome_page()
 }

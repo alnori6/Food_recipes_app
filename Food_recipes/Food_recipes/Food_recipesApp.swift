@@ -11,7 +11,9 @@ import SwiftUI
 struct Food_recipesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            home_page()
+                .accentColor(Color("AccentColor"))
+                .font(.system(size: 17, weight: .regular, design: .default))
         }
     }
 }
