@@ -6,85 +6,66 @@
 //
 
 import SwiftUI
+import Combine
 
 struct home_page: View {
-    
-    @EnvironmentObject var homeVM: home_ViewModel
+    /// The ViewModel managing the recipes and photo picker
+    @ObservedObject var recipeVM: Recipe_ViewModel
     
     var body: some View {
         NavigationView {
-            
-//            if homeVM.isEmpty {
-            
-                ScrollView{
-                    VStack{
-                        
-                        Spacer()
-                            .frame(height: 79)
-                        
-                        // Fork and Knife Image (System Image or Custom)
-                        Image("logo")
-                            .resizable()
-                            .frame(width: 274, height: 274)
-                        
-                        // Main Text
-                        Text("There's no recipe yet")
-                            .font(.system(size: 34))
-                            .fontWeight(.bold)
-                            .padding(.top, 24)
-                        
-                        // Sub Text
-                        Text("Please add your recipes")
-                            .foregroundColor(Color("guiding_text"))
-                            .font(.system(size: 22))
-                            .padding(.top, 24)
-                        
-                        Spacer()
-                        
-                    } // end vstack
+            ScrollView {
+                VStack {
+                    Spacer().frame(height: 22)
                     
+                    // Check if there are no recipes and display a placeholder view
+                    if recipeVM.recipes.isEmpty {
+                        VStack {
+                            Image("logo")
+                                .resizable()
+                                .frame(width: 274, height: 274)
+                            
+                            Text("There's no recipe yet")
+                                .font(.system(size: 34))
+                                .fontWeight(.bold)
+                                .padding(.top, 24)
+                            
+                            Text("Please add your recipes")
+                                .foregroundColor(Color("guiding_text"))
+                                .font(.system(size: 22))
+                                .padding(.top, 24)
+                            
+                            Spacer()
+                        }
+                        .padding(.top, 50)
+                    } else {
+                        // Display list of recipes if there are any
+                        VStack(alignment: .center, spacing: 10) {
+                            ForEach(recipeVM.recipes) { recipe in
+                                // Pass the selected recipe to RecipeDisplay_page
+                                NavigationLink(destination: RecipeDisplay_page(recipe: recipe)) {
+                                    RecipeCardView(recipe: recipe)
+                                }
+                            }
+                        }
+                    }
                     
-                } // end scroll view
-                .navigationTitle("Food Recipes")
-                
-                .navigationBarItems(trailing:
-                    NavigationLink(destination: Recipe_page(recipeVM: Recipe_ViewModel())) {
+                    Spacer()
+                }
+            }
+            .navigationTitle("Food Recipes")
+            .navigationBarItems(trailing:
+                NavigationLink(destination: Recipe_page(recipeVM: recipeVM)) {
                     Image(systemName: "plus")
                         .font(.system(size: 17))
-                    }
-                )
-            
-                
-                .modifier(NavigationBarModifier(backgroundColor: UIColor(named: "nav_background")))
-                
-            }// end navigation view
-            
-//        } else {
-//                // Display the list of recipes
-//                List {
-//                    ForEach(recipesVM.recipes) { recipe in
-//                        NavigationLink(destination: RecipeDetailView(recipe: recipe)) {
-//                            Text(recipe.title)
-//                        }
-//                    }
-//                    .onDelete(perform: recipesVM.deleteRecipe)
-//                }
-//                .navigationTitle("Food Recipes")
-//                .navigationBarItems(trailing:
-//                    NavigationLink(destination: NewRecipeView()) {
-//                        Image(systemName: "plus")
-//                            .font(.system(size: 17))
-//                    }
-//                )
-//                .modifier(NavigationBarModifier(backgroundColor: UIColor(named: "nav_background")))
-//            }
-    } //end body view
+                        .foregroundColor(Color("AccentColor"))
+                }
+            )
+            .modifier(NavigationBarModifier(backgroundColor: UIColor(named: "nav_background")))
+        }
+    }
 }
 
 #Preview {
-    home_page()
+    home_page(recipeVM: Recipe_ViewModel())
 }
-
-
-
-//here

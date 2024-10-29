@@ -4,23 +4,22 @@
 //
 //  Created by Noori on 25/10/2024.
 //
-
 import SwiftUI
-import Combine
 
 class home_ViewModel: ObservableObject {
-//    @Published var recipes: [Recipe] = []
-    
-    init() async throws {
-//        @Published var recipes: [Recipe] = []
-//            
-//            func addRecipe(_ recipe: Recipe) {
-//                recipes.append(recipe)
-//            }
+
+    // Initializer to load default or existing recipes
+    init() {
+        
+        
+//        title: "Halomi Salad",
+//        description: "semi-hard cheese typically made from the milk of goats, sheep, or cows. It's known for its tangy taste and firm, chewy texture.",
+//        image: UIImage(named: "Halomi Salad"),
+//        ingredients: [
+//            Ingredient(name: "Plasamic", measurement: "🥄 Spoon", quantity: "1")
+//        ]
+        
     }
+    
+    
 }
-
-
-
-
-//here

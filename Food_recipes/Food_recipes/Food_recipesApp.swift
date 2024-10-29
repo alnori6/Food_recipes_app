@@ -9,11 +9,14 @@ import SwiftUI
 
 @main
 struct Food_recipesApp: App {
+    @StateObject private var recipeVM = Recipe_ViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            home_page()
+            home_page(recipeVM: Recipe_ViewModel())
                 .accentColor(Color("AccentColor"))
                 .font(.system(size: 17, weight: .regular, design: .default))
+                .environmentObject(recipeVM)
         }
     }
 }

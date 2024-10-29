@@ -10,10 +10,10 @@
     <key>NSPhotoLibraryAddUsageDescription</key>
     <string>We need access to your photo library to save a photo of your recipe.</string>
 
-    <!-- Additional keys (optional) -->
-    <key>CFBundleDocumentTypes</key>
-    <array>
-        <dict/>
-    </array>
+
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict/>
+	</array>
 </dict>
 </plist>
